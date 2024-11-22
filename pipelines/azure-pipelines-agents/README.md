@@ -5,6 +5,7 @@
 
 ## Docker
 Build: `docker build -t boinc/client -f Dockerfile.base-ubuntu .`
+
 Run: `docker build --tag "azp-agent:linux" --file "./azp-agent-linux.dockerfile" .`
 
 ## Docker Compose
