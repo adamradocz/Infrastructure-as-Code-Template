@@ -1,0 +1,39 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+parameters:
+- name: buildConfiguration
+  type: string
+  default: 'Release'
+
+variables:
+  buildConfiguration: ${{ parameters.buildConfiguration }}
+
+# Windows and macOS run on Microsoft-hosted agents, Linux runs on self-hosted agent.
+jobs:
+- job: Windows
+  displayName: Run on Windows
+  pool:
+    name: Azure Pipelines
+    vmImage: 'windows-latest'
+  steps:
+  - template: templates/sdk-steps.yml
+  - template: templates/dotnet-steps.yml
+
+- job: Linux
+  displayName: Run on Linux
+  pool:
+    name: Default
+  steps:
+  - template: templates/dotnet-steps.yml
+
+- job: macOS
+  displayName: Run on macOS
+  pool:
+    name: Azure Pipelines
+    vmImage: 'macOS-latest'
+  steps:
+  - template: templates/sdk-steps.yml
+  - template: templates/dotnet-steps.yml

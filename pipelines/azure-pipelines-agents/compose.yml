@@ -1,0 +1,12 @@
+services:
+  azp-agent:
+      image: azp-agent:linux
+      build:
+        context: .
+        dockerfile: azp-agent-linux.dockerfile
+      container_name: azp-agent-linux
+      environment:
+          - AZP_URL=<Azure DevOps instance eg. https://dev.azure.com/your-organization/>
+          - AZP_TOKEN=<Personal Access Token>
+          - AZP_POOL=Default
+          - "AZP_AGENT_NAME=Self-hosted Docker Agent - Linux"

@@ -1,0 +1,7 @@
+steps:
+# Install .NET 9 SDK, as the Microsoft-hosted agents in Azure Pipelines do not have it preinstalled.
+- task: UseDotNet@2
+  displayName: 'Install .NET SDK'
+  inputs:
+    version: '9.x'
+    performMultiLevelLookup: true

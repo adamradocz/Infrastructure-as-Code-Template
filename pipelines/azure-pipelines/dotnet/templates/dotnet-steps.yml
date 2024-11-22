@@ -1,0 +1,8 @@
+steps:
+# Packages are restored automatically when building.
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+
+# --no-build also implicitly sets the --no-restore flag.
+- script: dotnet test --no-build --configuration $(buildConfiguration)
+  displayName: 'dotnet test $(buildConfiguration)'

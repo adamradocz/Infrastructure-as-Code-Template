@@ -1,5 +1,5 @@
 # Infrastructure-as-Code-Template
-Sample infrastructure-as-code template focusing on .NET projects.
+Sample infrastructure-as-code template focusing on .NET 9 projects.
 
 # Resources
 - [DevOps resource center](https://learn.microsoft.com/en-us/devops/)

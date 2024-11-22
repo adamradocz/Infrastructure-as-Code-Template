@@ -1,0 +1,16 @@
+trigger:
+- main
+
+# If your pipeline has templates in another repository or you want to use multi-repo checkout:
+# https://learn.microsoft.com/en-us/azure/devops/pipelines/process/resources?view=azure-devops#define-a-repositories-resource
+resources:
+  repositories:
+    - repository: infrastructure            # Alias for the repository.
+      type: git                             # Type of repository: git (Azure Repos), github, githubenterprise, and bitbucket.
+      name: 'Infrastructure/Infrastructure' # Format: OtherProject/OtherRepo (format depends on 'type').
+      ref: main                             # ref name to checkout.
+
+extends:
+  template: pipelines/azure-pipelines/dotnet/asp.net-core.yml@infrastructure
+  parameters:
+    buildConfiguration: 'Release'
