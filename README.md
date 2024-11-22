@@ -1,2 +1,2 @@
 # Infrastructure-as-Code-Template
-Sample infrastructure-as-code template.
+Sample infrastructure-as-code template focusing on .NET projects.
